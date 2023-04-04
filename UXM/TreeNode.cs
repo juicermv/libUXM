@@ -25,6 +25,13 @@ namespace UXM
             set => SetField(ref _visibility, value);
         }
 
+        private bool _expanded = false;
+        public bool Expanded
+        {
+            get => _expanded;
+            set => SetField(ref _expanded, value);
+        }
+
         private bool _selected;
         public bool Selected
         {

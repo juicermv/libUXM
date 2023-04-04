@@ -147,7 +147,7 @@ namespace UXM
         {
             foreach (TreeNode n in TreeNodesCollection.Traverse())
             {
-                n.Visibility = n.Name.ToLower().Contains(ItemFilter.ToLower()) || n.HasChildWithName(ItemFilter.ToLower());
+                n.Expanded = n.Visibility = n.Name.ToLower().Contains(ItemFilter.ToLower()) || n.HasChildWithName(ItemFilter.ToLower());
             }
         }
 

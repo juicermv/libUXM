@@ -16,7 +16,7 @@
                     <Setter.Value>
                         <Style TargetType="{x:Type TreeViewItem}">
                             <Setter Property="BorderThickness" Value="1.5"/>
-                            <!--<Setter Property="IsExpanded" Value="{Binding Path=Visibility, Mode=OneWay}" />-->
+                            <Setter Property="IsExpanded" Value="{Binding Path=Expanded, Mode=TwoWay}" />
                             <Setter Property="Visibility" Value="{Binding Path=Visibility, Mode=OneWay, 
                         Converter={StaticResource ResourceKey=BoolToVisibilityConverter}}"/>
                             <Style.Triggers>
@@ -103,12 +103,11 @@
                 <!--<CheckBox Content="Expand on Search" HorizontalAlignment="Center" Grid.Column="1" VerticalAlignment="Center" IsChecked="{Binding Expand}"/>-->
             </Grid>
 
-
-            <TreeView Name="FileTree" Grid.Row="1" Grid.Column="0" ItemsSource="{Binding TreeNodesCollection}" Style="{StaticResource ResourceKey=SearchableTreeView}">
+            <TreeView Name="FileTree" Grid.Row="1" Grid.Column="0" ItemsSource="{Binding TreeNodesCollection}" Style="{StaticResource ResourceKey=SearchableTreeView}" VirtualizingStackPanel.IsVirtualizing="True">
 
                 <!--<TreeView.Resources>
                     <HierarchicalDataTemplate DataType="{x:Type local:TreeNode}" ItemsSource="{Binding NodeCollection}">
-                        <TreeViewItem Visibility="{Binding Visibility, Converter={StaticResource ResourceKey=BoolToVisibilityConverter}}">
+                        <TreeViewItem Visibility="{Binding Visibility, Converter={StaticResource ResourceKey=BoolToVisibilityConverter}}" IsExpanded="{Binding Visibility}">
                             <TreeViewItem.Header>
                                 <StackPanel Orientation="Horizontal"  >
                                     <CheckBox IsChecked="{Binding Selected}" Checked="CheckBox_Checked" Unchecked="CheckBox_Checked"/>
