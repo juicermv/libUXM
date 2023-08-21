@@ -236,7 +236,7 @@ namespace UXM
                                 if (archiveDictionary.GetPath(header.FileNameHash, out path))
                                 {
                                     if (archive == @"sd\sd")
-                                        path = $"/sound/{path}";
+                                        path = $@"\sd\{path}";
 
                                     unknown = false;
                                     path = gameDir + path.Replace('/', '\\');
@@ -259,7 +259,9 @@ namespace UXM
                                 progress.Report(((index + 2.0 + currentFile / (double)fileCount) / (total + 2.0),
                                     $"Unpacking {archive} ({currentFile + 1}/{fileCount})..."));
 
-                                while (asyncFileWriters.Count > 0 && writingSize + header.PaddedFileSize > WRITE_LIMIT)
+                                long fileSize = GetFileSize(header, gameVersion);
+
+                                while (asyncFileWriters.Count > 0 && writingSize + fileSize > WRITE_LIMIT)
                                 {
                                     for (int i = 0; i < asyncFileWriters.Count; i++)
                                     {
@@ -270,7 +272,7 @@ namespace UXM
                                         }
                                     }
 
-                                    if (asyncFileWriters.Count > 0 && writingSize + header.PaddedFileSize > WRITE_LIMIT)
+                                    if (asyncFileWriters.Count > 0 && writingSize + fileSize > WRITE_LIMIT)
                                         Thread.Sleep(10);
                                 }
 
@@ -278,6 +280,11 @@ namespace UXM
                                 try
                                 {
                                     bytes = header.ReadFile(bdtStream);
+                                    if (gameVersion >= BHD5.Game.DarkSouls3)
+                                    {
+                                        bytes = bytes.Take((int)fileSize).ToArray();
+                                    }
+
                                     if (unknown)
                                     {
                                         path += Util.GetExtensions(bytes);
@@ -319,7 +326,17 @@ namespace UXM
 
             return null;
         }
-       
+
+        private static long GetFileSize(BHD5.FileHeader header, BHD5.Game gameVersion)
+        {
+            if (gameVersion >= BHD5.Game.DarkSouls3)
+            {
+                return header.UnpaddedFileSize;
+            }
+
+            return header.PaddedFileSize;
+        }
+
         private static async Task<long> WriteFileAsync(string path, byte[] bytes)
         {
             using (var fs = new FileStream(path, FileMode.Create, FileAccess.Write, FileShare.None, 4096, true))
