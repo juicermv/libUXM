@@ -79,6 +79,10 @@ namespace UXM
             {
                 keys = ArchiveKeys.EldenRingKeys;
             }
+            else if (game == Util.Game.ArmoredCore6)
+            {
+                keys = ArchiveKeys.ArmoredCore6Keys;
+            }
 
             string drive = Path.GetPathRoot(Path.GetFullPath(gameDir));
             DriveInfo driveInfo = new DriveInfo(drive);
@@ -280,7 +284,7 @@ namespace UXM
                                 try
                                 {
                                     bytes = header.ReadFile(bdtStream);
-                                    if (gameVersion >= BHD5.Game.DarkSouls3)
+                                    if (archive == @"sd\sd" && gameVersion == BHD5.Game.EldenRing && bytes.Length > fileSize)
                                     {
                                         bytes = bytes.Take((int)fileSize).ToArray();
                                     }

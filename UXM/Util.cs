@@ -47,6 +47,8 @@ namespace UXM {
                     return Game.SekiroBonus;
                 case "eldenring.exe":
                     return Game.EldenRing;
+                case "armoredcore6.exe":
+                    return Game.ArmoredCore6;
                 default:
                     throw new InvalidGameException($"Invalid executable name given: {filename}\r\n"
                         + "Executable file name is expected to be DARKSOULS.exe DarkSoulsII.exe, DarkSoulsIII.exe, sekiro.exe, or DigitalArtwork_MiniSoundtrack.exe.");
@@ -60,7 +62,8 @@ namespace UXM {
             DarkSouls3,
             Sekiro,
             SekiroBonus,
-            EldenRing
+            EldenRing,
+            ArmoredCore6,
         }
 
         static (string, string)[] _pathValueTuple = new (string, string)[] {
