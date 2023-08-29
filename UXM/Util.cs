@@ -51,7 +51,7 @@ namespace UXM {
                     return Game.ArmoredCore6;
                 default:
                     throw new InvalidGameException($"Invalid executable name given: {filename}\r\n"
-                        + "Executable file name is expected to be DARKSOULS.exe DarkSoulsII.exe, DarkSoulsIII.exe, sekiro.exe, or DigitalArtwork_MiniSoundtrack.exe.");
+                        + "Executable file name is expected to be DARKSOULS.exe DarkSoulsII.exe, DarkSoulsIII.exe, sekiro.exe, DigitalArtwork_MiniSoundtrack.exe, eldenring.exe or armoredcore6.exe.");
             }
         }
 
@@ -139,6 +139,12 @@ namespace UXM {
 
             try {
                 using (BinaryReaderEx br = new BinaryReaderEx(false, bytes)) {
+                    if (bytes.Length >= 4 && br.GetASCII(0, 4) == "DCX\0")
+                    {
+
+                        byte[] decompressedBytes = DCX.Decompress(bytes);
+                        return $"{GetExtensions(decompressedBytes)}.dcx";
+                    }
                     if (bytes.Length >= 3 && br.GetASCII(0, 3) == "GFX")
                         return ".gfx";
                     if (bytes.Length >= 4 && br.GetASCII(0, 4) == "FSB5")
@@ -169,11 +175,6 @@ namespace UXM {
                         return ".pipelinestatecache";
                     if (bytes.Length >= 4 && br.GetASCII(0, 4) == "ENFL")
                         return ".entryfilelist";
-                    if (bytes.Length >= 4 && br.GetASCII(0, 4) == "DCX\0") {
-
-                        byte[] decompressedBytes = DCX.Decompress(bytes);
-                        return $"{GetExtensions(decompressedBytes)}.dcx";
-                    }
                 }
             }
             catch (EndOfStreamException) {
@@ -210,6 +211,7 @@ namespace UXM {
                 case Game.SekiroBonus:
                     return BHD5.Game.DarkSouls3;
                 case Game.EldenRing:
+                case Game.ArmoredCore6:
                     return BHD5.Game.EldenRing;
                 default:
                     throw new ArgumentOutOfRangeException(nameof(game), game, "Game does not have a BHD5.Game enum value");
