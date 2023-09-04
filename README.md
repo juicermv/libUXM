@@ -4,7 +4,7 @@ Requires [.NET 4.7.2](https://www.microsoft.com/net/download/thank-you/net472) -
 [Nexus Page](https://www.nexusmods.com/eldenring/mods/1651)    
 
 # Usage  
-When first starting the app, the default Steam location of Sekiro will be selected. If the game you want is installed somewhere else, use the Browse button to correct it.  
+When first starting the app, the default Steam location of Elden Ring will be selected. If the game you want is installed somewhere else, use the Browse button to correct it.  
 
 The Unpack button will extract all files from the game archives, unless you select files in the "View Files" menu.  
 
