@@ -16,6 +16,7 @@ namespace UXM
         private const int WRITE_LIMIT = 1024 * 1024 * 100;
 
         public static bool Skip { get; private set; }
+        static IntPtr _oodlePtr = IntPtr.Zero;
 
         public static void SetSkip(bool skip)
         {
@@ -40,8 +41,7 @@ namespace UXM
 
                 return $"Error getting game info: {ex.Message} {ex.StackTrace}";
             }
-            if ((game == Util.Game.EldenRing || game == Util.Game.Sekiro) && !File.Exists("oo2core_6_win64.dll"))
-                File.Copy($"{gameDir}/oo2core_6_win64.dll", $"{Environment.CurrentDirectory}/oo2core_6_win64.dll");
+            _oodlePtr = getOodlePtr(game, gameDir);
 
             if (FormFileView.SelectedFiles.Any() && Skip)
                 gameInfo.Dictionary = new ArchiveDictionary(string.Join("\n", FormFileView.SelectedFiles), Util.GetBHD5Game(game));
@@ -148,8 +148,56 @@ namespace UXM
             if (game == Util.Game.DarkSouls)
                 UnpackDarkSoulsPTDE(exePath, gameDir, progress);
 
+            freeOodleLibrary();
             progress.Report((1, "Unpacking complete!"));
             return null;
+        }
+
+        private static IntPtr getOodlePtr(Util.Game game, string gameDir)
+        {
+            string oodlePath;
+            switch (game)
+            {
+                case Util.Game.Sekiro:
+                case Util.Game.EldenRing:
+                    oodlePath = $"{gameDir}\\oo2core_6_win64.dll";
+                    break;
+                case Util.Game.ArmoredCore6:
+                    oodlePath = $"{gameDir}\\oo2core_8_win64.dll";
+                    break;
+                default:
+                    return IntPtr.Zero;
+            }
+
+
+            if (File.Exists(oodlePath))
+            {
+                return Kernel32.LoadLibrary(oodlePath);
+            }
+
+            oodlePath = Util.GetOodlePath();
+            if (oodlePath != null)
+            {
+                return Kernel32.LoadLibrary(oodlePath);
+            }
+
+            return IntPtr.Zero;
+        }
+
+        private static void freeOodleLibrary()
+        {
+            if (_oodlePtr != IntPtr.Zero)
+            {
+                Kernel32.FreeLibrary(_oodlePtr);
+                return;
+            }
+
+            IntPtr oodlePtr = Oodle.GetOodlePtr();
+            if (oodlePtr != IntPtr.Zero)
+            {
+                Kernel32.FreeLibrary(oodlePtr);
+                return;
+            }
         }
 
         private static void UnpackDarkSoulsPTDE(string exePath, string gameDir, IProgress<(double value, string status)> progress)

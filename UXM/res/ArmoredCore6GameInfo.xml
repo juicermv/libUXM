@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <game_info>
 	<required_gb>50</required_gb>
-	<bhd5_game>ArmoredCore6</bhd5_game>
+	<bhd5_game>EldenRing</bhd5_game>
 	<archives>
 		<archive>Data0</archive>
 		<archive>Data1</archive>
@@ -29,11 +29,13 @@
 		<delete>msg</delete>
 		<delete>other</delete>
 		<delete>param</delete>
+		<delete>paramtdf</delete>
 		<delete>parts</delete>
 		<delete>script</delete>
 		<delete>sound</delete>
 		<delete>sfx</delete>
 		<delete>shader</delete>
+		<delete>shader_d3d12</delete>
 	</delete_dirs>
 	<replacements>
 		<replacement>data0:/</replacement>

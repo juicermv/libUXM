@@ -110,15 +110,14 @@ namespace UXM
 
             foreach (string path in paths)
             {
-                if (path == "#sd")
-                    sound = true;
+                sound = path == "#sd";
 
                 if (path.StartsWith("#"))
                     continue;
 
                 string newPath = path;
                 if (sound)
-                    newPath = $"/sound/{path}";
+                    newPath = $"/sd/{path}";
 
                 currentnode = thisnode;
                 foreach (string subPath in newPath.Split(cachedpathseparator, StringSplitOptions.RemoveEmptyEntries))

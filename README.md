@@ -33,15 +33,15 @@ You cannot play online with an modified exe, so you cannot go online with an unp
 
 [Semver](https://github.com/maxhauser/semver) by Max Hauser  
 
-# Changelog  
-### 2.1.7.2
-* Updated to remove padding from files for DS3 and games after DS3.
+# Changelog   
+### 2.2
+* Updated to remove padding from sound files for files in `sd/sd` folder.  
 
-* Moved sound files to `sd` folder in Elden Ring for game/ME2 compatability.
+* Moved sound files to `sd` folder in Elden Ring for game/ME2 compatability.  
 
-* Updated Elden Ring dictionary
+* Updated Elden Ring dictionary.  
 
-* NOT an update for Armored Care 6. Armored Core 6 with be 2.2 and above.
+* Supports Armored Core 6. Added AC6 dictionary and game info.  
 
 ### 2.1.7.1
 * re-fixed sekiro unpacking. Whoops!  
