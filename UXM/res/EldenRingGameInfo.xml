@@ -7,7 +7,9 @@
 		<archive>Data1</archive>
 		<archive>Data2</archive>
 		<archive>Data3</archive>
+		<archive>DLC</archive>
 		<archive>sd\sd</archive>
+		<archive>sd\sd_dlc02</archive>
 	</archives>
 	<backup_dirs>
 		<backup>sd</backup>
@@ -40,6 +42,8 @@
 		<replacement>data1:/</replacement>
 		<replacement>data2:/</replacement>
 		<replacement>data3:/</replacement>
+		<replacement>dlc:/</replacement>
 		<replacement>sd:/</replacement>
+		<replacement>sd_dlc02:/</replacement>
 	</replacements>
 </game_info>

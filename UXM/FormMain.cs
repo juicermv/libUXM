@@ -43,7 +43,7 @@ namespace UXM
             if (settings.WindowMaximized)
                 WindowState = FormWindowState.Maximized;
 
-            string installPath = Util.TryGetGameInstallLocation(settings.ExePath);
+            string installPath = Util.TryGetGameInstallLocation(settings.ExePath.Replace("{0}", ""));
             if (!string.IsNullOrEmpty(installPath))
                 settings.ExePath = installPath;
 

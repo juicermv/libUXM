@@ -332,7 +332,7 @@ namespace UXM
                                 try
                                 {
                                     bytes = header.ReadFile(bdtStream);
-                                    if (archive == @"sd\sd" && gameVersion == BHD5.Game.EldenRing && bytes.Length > fileSize)
+                                    if (archive == @"sd\sd" && gameVersion >= BHD5.Game.EldenRing && bytes.Length > fileSize)
                                     {
                                         bytes = bytes.Take((int)fileSize).ToArray();
                                     }
