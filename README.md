@@ -34,6 +34,13 @@ You cannot play online with an modified exe, so you cannot go online with an unp
 [Semver](https://github.com/maxhauser/semver) by Max Hauser  
 
 # Changelog   
+### 2.3
+* Updated for Elden Ring DLC  
+
+* Updated Armored Core 6 dictionary  
+
+* You will have to check GitHub change log for file changes, for now. Sorry.  
+
 ### 2.2
 * Updated to remove padding from sound files for files in `sd/sd` folder.  
 
