@@ -77,6 +77,9 @@ namespace UXM
                 case Util.Game.ArmoredCore6:
                     prefix = "ArmoredCore6";
                     break;
+                case Util.Game.EldenRingNightreign:
+                    prefix = "EldenRingNightreign";
+                    break;
                 default:
                     throw new ArgumentException("Invalid game type.");
             }

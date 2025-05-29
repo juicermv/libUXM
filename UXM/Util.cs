@@ -58,6 +58,8 @@ namespace UXM
                     return Game.EldenRing;
                 case "armoredcore6.exe":
                     return Game.ArmoredCore6;
+                case "nightreign.exe":
+                    return Game.EldenRingNightreign;
                 default:
                     throw new InvalidGameException($"Invalid executable name given: {filename}\r\n"
                         + "Executable file name is expected to be DARKSOULS.exe DarkSoulsII.exe, DarkSoulsIII.exe, sekiro.exe, DigitalArtwork_MiniSoundtrack.exe, eldenring.exe or armoredcore6.exe.");
@@ -74,6 +76,7 @@ namespace UXM
             SekiroBonus,
             EldenRing,
             ArmoredCore6,
+            EldenRingNightreign,
         }
 
         static (string, string)[] _pathValueTuple = new (string, string)[]

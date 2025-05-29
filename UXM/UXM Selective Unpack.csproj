@@ -163,11 +163,17 @@
     <Content Include="res\ArmoredCore6Dictionary.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="res\EldenRingNightreignDictionary.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="res\EldenRingDictionary.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="res\ArmoredCore6GameInfo.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="res\EldenRingNightreignGameInfo.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="res\EldenRingGameInfo.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

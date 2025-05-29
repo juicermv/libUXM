@@ -83,6 +83,10 @@ namespace UXM
             {
                 keys = ArchiveKeys.ArmoredCore6Keys;
             }
+            else if (game == Util.Game.EldenRingNightreign)
+            {
+                keys = ArchiveKeys.EldenRingNightreignKeys;
+            }
 
             string drive = Path.GetPathRoot(Path.GetFullPath(gameDir));
             DriveInfo driveInfo = new DriveInfo(drive);
