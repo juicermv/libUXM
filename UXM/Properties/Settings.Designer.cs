@@ -73,7 +73,7 @@ namespace UXM.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("{0}\\steamapps\\common\\ELDEN RING\\Game\\eldenring.exe")]
+        [global::System.Configuration.DefaultSettingValueAttribute("{0}\\steamapps\\common\\ELDEN RING NIGHTREIGN\\Game\\nightreign.exe")]
         public string ExePath {
             get {
                 return ((string)(this["ExePath"]));

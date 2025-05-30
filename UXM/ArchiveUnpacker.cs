@@ -169,6 +169,9 @@ namespace UXM
                 case Util.Game.ArmoredCore6:
                     oodlePath = $"{gameDir}\\oo2core_8_win64.dll";
                     break;
+                case Util.Game.EldenRingNightreign:
+                    oodlePath = $"{gameDir}\\oo2core_9_win64.dll";
+                    break;
                 default:
                     return IntPtr.Zero;
             }

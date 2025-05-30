@@ -266,6 +266,11 @@ namespace UXM
         "ARMORED CORE VI FIRES OF RUBICON",
     };
 
+        private static string[] Oodle9Games =
+{
+        "ELDEN RING NIGHTREIGN",
+    };
+
 
         public static string GetOodlePath()
         {
@@ -279,6 +284,13 @@ namespace UXM
             foreach (string game in Oodle8Games)
             {
                 string path = TryGetGameInstallLocation($"\\steamapps\\common\\{game}\\Game\\oo2core_8_win64.dll");
+                if (path != null)
+                    return path;
+            }
+
+            foreach (string game in Oodle9Games)
+            {
+                string path = TryGetGameInstallLocation($"\\steamapps\\common\\{game}\\Game\\oo2core_9_win64.dll");
                 if (path != null)
                     return path;
             }
