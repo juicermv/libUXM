@@ -34,6 +34,12 @@ You cannot play online with an modified exe, so you cannot go online with an unp
 [Semver](https://github.com/maxhauser/semver) by Max Hauser  
 
 # Changelog   
+### 2.4.1
+* Updated dictionary with the correct files for Nightreign. Thank you to TKGP, the original author of UXM, for dumping the files, and Sekiro Dubi for putting this list together in the format expected by UXM Selective Unpacker.
+
+### 2.4
+* Updated for Elden Ring Nightreign. The files in the res folder are just a copy of Elden Ring, for now. We will have a list of the actual game files shortly, in an update. You will need to be in ?ServerName? if you want the files, sooner than later.
+
 ### 2.3
 * Updated for Elden Ring DLC  
 

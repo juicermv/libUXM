@@ -35,7 +35,6 @@ namespace UXM
 
         private async void FormMain_Load(object sender, EventArgs e)
         {
-            BND4 bnd = SFUtil.DecryptERNRRegulation(@"C:\Program Files (x86)\Steam\steamapps\common\ELDEN RING NIGHTREIGN\Game\regulation.bin");
             Text = $"UXM {Application.ProductVersion} Selective Unpacker";
             EnableControls(true);
 
