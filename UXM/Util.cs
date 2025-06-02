@@ -249,6 +249,7 @@ namespace UXM
                     return BHD5.Game.DarkSouls3;
                 case Game.EldenRing:
                 case Game.ArmoredCore6:
+                case Game.EldenRingNightreign:
                     return BHD5.Game.EldenRing;
                 default:
                     throw new ArgumentOutOfRangeException(nameof(game), game, "Game does not have a BHD5.Game enum value");

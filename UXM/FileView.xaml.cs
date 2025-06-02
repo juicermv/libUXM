@@ -110,10 +110,12 @@ namespace UXM
 
             foreach (string path in paths)
             {
-                sound = path == "#sd";
 
                 if (path.StartsWith("#"))
+                {
+                    sound = path.StartsWith("#sd");
                     continue;
+                }
 
                 string newPath = path;
                 if (sound)

@@ -34,6 +34,9 @@ You cannot play online with an modified exe, so you cannot go online with an unp
 [Semver](https://github.com/maxhauser/semver) by Max Hauser  
 
 # Changelog   
+### 2.4.2
+* Re-added the check for dlc 2 sound banks and updated Sekiro dictionary. 
+
 ### 2.4.1
 * Updated dictionary with the correct files for Nightreign. Thank you to TKGP, the original author of UXM, for dumping the files, and Sekiro Dubi for putting this list together in the format expected by UXM Selective Unpacker.
 
