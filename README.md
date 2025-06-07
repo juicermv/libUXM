@@ -34,6 +34,9 @@ You cannot play online with an modified exe, so you cannot go online with an unp
 [Semver](https://github.com/maxhauser/semver) by Max Hauser  
 
 # Changelog   
+### 2.5
+* Add output path for unpacking to a different directory, instead of the game directory. If it is blank, it will default to the game directory.
+
 ### 2.4.2
 * Re-added the check for dlc 2 sound banks and updated Sekiro dictionary. 
 

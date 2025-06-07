@@ -90,7 +90,7 @@ namespace UXM
                     MessageBox.Show(ex.Message);
                     txtExePath.Text = settings.ExePath;
                     return;
-                  
+
                 }
 
                 settings.ExePath = txtExePath.Text;
@@ -228,7 +228,8 @@ namespace UXM
         {
             EnableControls(false);
             cts = new CancellationTokenSource();
-            string error = await Task.Run(() => ArchiveUnpacker.Unpack(txtExePath.Text, progress, cts.Token));
+            string outputPath = string.IsNullOrWhiteSpace(txtOutputPath.Text) ? txtExePath.Text : txtOutputPath.Text;
+            string error = await Task.Run(() => ArchiveUnpacker.Unpack(txtExePath.Text, outputPath, progress, cts.Token));
 
             if (cts.Token.IsCancellationRequested)
             {
@@ -312,9 +313,10 @@ namespace UXM
 
             await Dispatcher.CurrentDispatcher.Invoke(async () =>
             {
-                    await GetTreeView();
+                await GetTreeView();
             });
-       
+
+
         }
 
         public void SetSkip(bool enable)
@@ -322,5 +324,17 @@ namespace UXM
             cbxSkip.Checked = enable;
         }
 
+        private void btnBrowseOutput_Click(object sender, EventArgs e)
+        {
+            string outputPath = string.IsNullOrWhiteSpace(txtOutputPath.Text) ? txtExePath.Text: txtOutputPath.Text;
+
+            ofdFolder.InitialDirectory = Path.GetDirectoryName(outputPath);
+            ofdFolder.ValidateNames = false;
+            ofdFolder.CheckFileExists = false;
+            ofdFolder.CheckPathExists = true;
+            ofdFolder.FileName = "Folder Selection";
+            if (ofdFolder.ShowDialog() == DialogResult.OK)
+                txtOutputPath.Text = Path.GetDirectoryName(ofdFolder.FileName);
+        }
     }
 }

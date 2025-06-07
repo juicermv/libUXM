@@ -23,7 +23,7 @@ namespace UXM
             Skip = skip;
         }
 
-        public static string Unpack(string exePath, IProgress<(double value, string status)> progress, CancellationToken ct)
+        public static string Unpack(string exePath, string outDir, IProgress<(double value, string status)> progress, CancellationToken ct)
         {
 
             progress.Report((0, "Preparing to unpack..."));
@@ -143,7 +143,7 @@ namespace UXM
 
                 string archive = gameInfo.Archives[i];
 
-                string error = UnpackArchive(gameDir, archive, keys?[archive], i,
+                string error = UnpackArchive(gameDir, outDir, archive, keys?[archive], i,
                     gameInfo.Archives.Count, gameInfo.BHD5Game, gameInfo.Dictionary, progress, ct).Result;
                 if (error != null)
                     return error;
@@ -225,7 +225,7 @@ namespace UXM
             ExtractBHD(gameDir, progress);
         }
 
-        private static async Task<string> UnpackArchive(string gameDir, string archive, string key, int index, int total,
+        private static async Task<string> UnpackArchive(string gameDir, string outDir, string archive, string key, int index, int total,
             BHD5.Game gameVersion, ArchiveDictionary archiveDictionary,
             IProgress<(double value, string status)> progress, CancellationToken ct)
         {
@@ -298,7 +298,7 @@ namespace UXM
                                         path = $@"\sd\{path}";
 
                                     unknown = false;
-                                    path = gameDir + path.Replace('/', '\\');
+                                    path = outDir + path.Replace('/', '\\');
                                     if (File.Exists(path))
                                         continue;
                                 }
@@ -309,7 +309,7 @@ namespace UXM
 
                                     unknown = true;
                                     string filename = $"{archive.Split('\\')[0]}_{header.FileNameHash:D10}"; //sad :(
-                                    string directory = $@"{gameDir}\_unknown";
+                                    string directory = $@"{outDir}\_unknown";
                                     path = $@"{directory}\{filename}";
                                     if (File.Exists(path) || Directory.Exists(directory) && Directory.GetFiles(directory, $"{filename}.*").Length > 0)
                                         continue;
