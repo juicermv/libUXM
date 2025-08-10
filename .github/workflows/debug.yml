@@ -1,0 +1,33 @@
+name: Build Debug Version
+
+on:
+    workflow_dispatch:
+    push:
+
+jobs:
+    build:
+        runs-on: windows-latest
+        steps:
+            - name: Checkout code
+              uses: actions/checkout@v4
+              with:
+                  fetch-depth: 0
+
+            - name: Setup .NET
+              uses: actions/setup-dotnet@v4
+              with:
+                  dotnet-version: '8.0.x'
+
+            - name: Restore dependencies
+              run: dotnet restore
+
+            # This will build the project as well as the NuGet package
+            - name: Build
+              run: dotnet build --configuration Debug
+
+            # Upload artifact with all build contents and the NuGet package
+            - name: Upload Artifacts
+              uses: actions/upload-artifact@v4
+              with:
+                  name: build-artifacts
+                  path: 'UXM/bin/Debug'

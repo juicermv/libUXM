@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.IO;
 using System.Text;
 using System.Threading;
-using System.Windows.Forms;
 using UXM.Data;
 
 namespace UXM.Misc
@@ -30,16 +29,7 @@ namespace UXM.Misc
                 return ex.Message;
             }
 
-            if (game == Util.Game.Sekiro)
-            {
-                DialogResult choice = MessageBox.Show("For Sekiro, most users should use Mod Engine instead of patching with UXM. Patching a vanilla exe will cause the game to crash on startup.\n" +
-                    "Are you sure you want to patch?", "Caution", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-                if (choice == DialogResult.No)
-                {
-                    progress.Report((1, "Patching cancelled."));
-                    return null;
-                }
-            }
+            // There used to be a warning about Sekiro here
 
             if (!File.Exists(gameDir + "\\_backup\\" + exeName))
             {
