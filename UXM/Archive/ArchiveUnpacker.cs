@@ -152,7 +152,7 @@ namespace UXM
             if (game == Util.Game.DarkSouls)
                 UnpackDarkSoulsPTDE(exePath, gameDir, progress);
 
-            freeOodleLibrary();
+            freeOodleLibrary(game, gameDir);
             progress.Report((1, "Unpacking complete!"));
             return null;
         }
@@ -191,7 +191,7 @@ namespace UXM
             return IntPtr.Zero;
         }
 
-        private static void freeOodleLibrary()
+        private static void freeOodleLibrary(Util.Game game, string gameDir)
         {
             if (_oodlePtr != IntPtr.Zero)
             {
@@ -199,7 +199,7 @@ namespace UXM
                 return;
             }
 
-            IntPtr oodlePtr = Oodle.GetOodlePtr();
+            IntPtr oodlePtr = getOodlePtr(game, gameDir);
             if (oodlePtr != IntPtr.Zero)
             {
                 Kernel32.FreeLibrary(oodlePtr);
