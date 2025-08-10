@@ -4,10 +4,11 @@ using System.IO;
 using System.Text;
 using System.Threading;
 using System.Windows.Forms;
+using UXM.Data;
 
-namespace UXM
+namespace UXM.Misc
 {
-    class ExePatcher
+    public class ExePatcher
     {
         private static readonly Encoding UTF16 = Encoding.Unicode;
 

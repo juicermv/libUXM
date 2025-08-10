@@ -1,10 +1,11 @@
 ﻿using System;
 using System.IO;
 using System.Threading;
+using UXM.Data;
 
-namespace UXM
+namespace UXM.Misc
 {
-    static class GameRestorer
+    public static class GameRestorer
     {
         public static string Restore(string exePath, IProgress<(double value, string status)> progress, CancellationToken ct)
         {

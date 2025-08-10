@@ -4,7 +4,7 @@ using Org.BouncyCastle.OpenSsl;
 using System;
 using System.IO;
 
-namespace UXM
+namespace UXM.Misc
 {
     /// <summary>
     /// These RSA functions are copy-pasted straight from BinderTool. Thank you Atvaark!

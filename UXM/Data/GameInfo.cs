@@ -5,8 +5,10 @@ using System.IO;
 using System.Linq;
 using System.Windows;
 using System.Xml.Linq;
+using UXM.Archive;
+using UXM.Misc;
 
-namespace UXM
+namespace UXM.Data
 {
 
     class GameInfo

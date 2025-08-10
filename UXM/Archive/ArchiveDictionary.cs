@@ -3,7 +3,7 @@ using System.Linq;
 using System.Text.RegularExpressions;
 using SoulsFormats;
 
-namespace UXM
+namespace UXM.Archive
 {
     class ArchiveDictionary
     {

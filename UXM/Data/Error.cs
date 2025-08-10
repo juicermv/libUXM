@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace UXM {
+namespace UXM.Data {
     public class InvalidGameException : Exception {
         public InvalidGameException() { }
         public InvalidGameException(string message) : base(message) { }

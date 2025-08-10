@@ -4,8 +4,9 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using UXM.Data;
 
-namespace UXM
+namespace UXM.Misc
 {
     public static class Util
     {
@@ -136,7 +137,8 @@ namespace UXM
             return installPath;
         }
 
-        private static bool IsUXMGame(string gamePath)
+
+        public static bool IsUXMGame(string gamePath)
         {
             try
             {
@@ -149,21 +151,6 @@ namespace UXM
             return true;
         }
 
-        public static IEnumerable<TreeNode> Traverse(this IEnumerable<TreeNode> root)
-        {
-            var stack = new Stack<TreeNode>(root);
-
-            while (stack.Any())
-            {
-                var node = stack.Pop();
-                yield return node;
-
-                foreach (TreeNode child in node.Nodes)
-                {
-                    stack.Push(child);
-                }
-            }
-        }
         public static string GetExtensions(byte[] bytes)
         {
 

@@ -9,22 +9,20 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Yabber;
 
-namespace UXM
+namespace UXM.Archive
 {
     static class ArchiveUnpacker
     {
         private const int WRITE_LIMIT = 1024 * 1024 * 100;
 
-        public static bool Skip { get; private set; }
         static IntPtr _oodlePtr = IntPtr.Zero;
 
-        public static void SetSkip(bool skip)
+        public static string Unpack(string exePath, string outDir, IProgress<(double value, string status)> progress, CancellationToken ct, string[] pathsToUnpack = null)
         {
-            Skip = skip;
-        }
-
-        public static string Unpack(string exePath, string outDir, IProgress<(double value, string status)> progress, CancellationToken ct)
-        {
+            // In UXM Selective Unpack this was named "Skip" and was a property of the class.
+            // As far as I can tell all it stood for was whether to unpack all files or not,
+            // since in the UI you could check/uncheck whether you want to unpack based on the file selection.
+            bool unpackSelected = pathsToUnpack != null && pathsToUnpack.Count() > 0;
 
             progress.Report((0, "Preparing to unpack..."));
             string gameDir = Path.GetDirectoryName(exePath);
@@ -43,8 +41,9 @@ namespace UXM
             }
             _oodlePtr = getOodlePtr(game, gameDir);
 
-            if (FormFileView.SelectedFiles.Any() && Skip)
-                gameInfo.Dictionary = new ArchiveDictionary(string.Join("\n", FormFileView.SelectedFiles), Util.GetBHD5Game(game));
+
+            if (unpackSelected)
+                gameInfo.Dictionary = new ArchiveDictionary(string.Join("\n", pathsToUnpack), Util.GetBHD5Game(game));
 
             Dictionary<string, string> keys = null;
             if (game == Util.Game.DarkSouls2 || game == Util.Game.Scholar)
@@ -144,7 +143,7 @@ namespace UXM
                 string archive = gameInfo.Archives[i];
 
                 string error = UnpackArchive(gameDir, outDir, archive, keys?[archive], i,
-                    gameInfo.Archives.Count, gameInfo.BHD5Game, gameInfo.Dictionary, progress, ct).Result;
+                    gameInfo.Archives.Count, gameInfo.BHD5Game, gameInfo.Dictionary, progress, ct, unpackSelected).Result;
                 if (error != null)
                     return error;
             }
@@ -227,7 +226,7 @@ namespace UXM
 
         private static async Task<string> UnpackArchive(string gameDir, string outDir, string archive, string key, int index, int total,
             BHD5.Game gameVersion, ArchiveDictionary archiveDictionary,
-            IProgress<(double value, string status)> progress, CancellationToken ct)
+            IProgress<(double value, string status)> progress, CancellationToken ct, bool unpackSelected)
         {
             progress.Report(((index + 2.0) / (total + 2.0), $"Loading {archive}..."));
             string bhdPath = $@"{gameDir}\{archive}.bhd";
@@ -304,7 +303,7 @@ namespace UXM
                                 }
                                 else
                                 {
-                                    if (Skip)
+                                    if (unpackSelected)
                                         continue;
 
                                     unknown = true;

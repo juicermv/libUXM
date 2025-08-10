@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Data;
 
-namespace UXM
+namespace UXM.Data.Converters
 {
     public class StringToVisibilityConverter : IValueConverter
     {

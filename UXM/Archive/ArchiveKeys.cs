@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace UXM
+namespace UXM.Archive
 {
     static class ArchiveKeys
     {
