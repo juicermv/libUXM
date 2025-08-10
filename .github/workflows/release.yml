@@ -80,5 +80,8 @@ jobs:
               shell: bash
               run: |
                   NUPKG=$(ls ./artifacts/*.nupkg)
+                  SNUPKG=$(ls ./artifacts/*.snupkg)
                   echo "Found NuGet package: $NUPKG"
+                  echo "Found Symbol package: $SNUPKG"
                   dotnet nuget push "$NUPKG" --api-key ${{ secrets.GITHUB_TOKEN }} --source "github"
+                  dotnet nuget push "$SNUPKG" --api-key ${{ secrets.GITHUB_TOKEN }} --source "github"
