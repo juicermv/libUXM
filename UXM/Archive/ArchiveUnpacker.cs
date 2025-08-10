@@ -9,6 +9,10 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Yabber;
 
+using UXM.Data;
+using UXM.Misc;
+
+
 namespace UXM.Archive
 {
     static class ArchiveUnpacker
@@ -22,7 +26,7 @@ namespace UXM.Archive
             // In UXM Selective Unpack this was named "Skip" and was a property of the class.
             // As far as I can tell all it stood for was whether to unpack all files or not,
             // since in the UI you could check/uncheck whether you want to unpack based on the file selection.
-            bool unpackSelected = pathsToUnpack != null && pathsToUnpack.Count() > 0;
+            bool unpackSelected = pathsToUnpack != null && pathsToUnpack.Any();
 
             progress.Report((0, "Preparing to unpack..."));
             string gameDir = Path.GetDirectoryName(exePath);
@@ -149,7 +153,7 @@ namespace UXM.Archive
             }
 
             if (game == Util.Game.DarkSouls)
-                UnpackDarkSoulsPTDE(exePath, gameDir, progress);
+                UnpackDarkSoulsPTDE(exePath, gameDir, progress, pathsToUnpack);
 
             freeOodleLibrary(game, gameDir);
             progress.Report((1, "Unpacking complete!"));
@@ -206,12 +210,13 @@ namespace UXM.Archive
             }
         }
 
-        private static void UnpackDarkSoulsPTDE(string exePath, string gameDir, IProgress<(double value, string status)> progress)
+        private static void UnpackDarkSoulsPTDE(string exePath, string gameDir, IProgress<(double value, string status)> progress, string[] selectedPathsToUnpack = null)
         {
             progress.Report((0, "Grabbing missing BHDs"));
             GetBHD(gameDir, progress);
 
-            if (!FormFileView.SelectedFiles.Any() || FormFileView.SelectedFiles.Contains(c4110Path))
+            bool selectedPathsNotEmpy = selectedPathsToUnpack != null && selectedPathsToUnpack.Any();
+            if (!selectedPathsNotEmpy || selectedPathsToUnpack.Contains(c4110Path))
             {
                 progress.Report((0, "Creating c4110 file"));
                 CreateC4110(gameDir);
