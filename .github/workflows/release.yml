@@ -1,0 +1,87 @@
+name: Tag, Build & Publish to NuGet
+on:
+    push:
+        branches:
+            - stable
+
+jobs:
+    build-tag:
+        runs-on: windows-latest
+        permissions:
+            packages: read
+            contents: write
+
+        steps:
+            - name: Checkout code
+              uses: actions/checkout@v4
+              with:
+                  fetch-depth: 0
+
+            - name: Setup .NET
+              uses: actions/setup-dotnet@v4
+              with:
+                  dotnet-version: '8.0.x'
+
+            - name: Setup GitVersion CLI
+              uses: gittools/actions/gitversion/setup@v4
+              with:
+                  versionSpec: '6.4.x'
+
+            - name: Calculate version
+              id: gitversion
+              uses: gittools/actions/gitversion/execute@v4
+
+            - name: NuGet Login
+              run: dotnet nuget add source --username ${{github.actor}} --password ${{ secrets.GITHUB_TOKEN }}  --store-password-in-clear-text --name github "https://nuget.pkg.github.com/${{ github.repository_owner }}/index.json"
+
+            - name: Restore dependencies
+              run: dotnet restore
+
+            # This will build the project as well as the NuGet package
+            - name: Build
+              run: dotnet build --configuration Release
+
+            - name: Create & Push Tag
+              run: |
+                  git tag ${{ steps.gitversion.outputs.MajorMinorPatch }}  
+                  git push origin ${{ steps.gitversion.outputs.MajorMinorPatch }}
+
+            # Upload artifact with all build contents and the NuGet package
+            - name: Upload Artifacts
+              uses: actions/upload-artifact@v4
+              with:
+                  name: build-artifacts
+                  path: 'UXM/bin/Release'
+
+    publish:
+        permissions:
+            packages: write
+
+        needs: build-tag
+
+        runs-on: ubuntu-latest
+        steps:
+            - name: Setup .NET
+              uses: actions/setup-dotnet@v4
+              with:
+                  dotnet-version: '8.0.x'
+
+            # Download artifacts
+            - name: Download Artifacts
+              uses: actions/download-artifact@v4
+              with:
+                  name: build-artifacts
+                  path: './artifacts'
+
+            - name: NuGet Login
+              run: dotnet nuget add source --username ${{github.actor}} --password ${{ secrets.GITHUB_TOKEN }}  --store-password-in-clear-text --name github "https://nuget.pkg.github.com/${{ github.repository_owner }}/index.json"
+
+            - name: Publish to NuGet
+              shell: bash
+              run: |
+                  NUPKG=$(ls ./artifacts/*.nupkg)
+                  SNUPKG=$(ls ./artifacts/*.snupkg)
+                  echo "Found NuGet package: $NUPKG"
+                  echo "Found Symbol package: $SNUPKG"
+                  dotnet nuget push "$NUPKG" --api-key ${{ secrets.GITHUB_TOKEN }} --source "github"
+                  dotnet nuget push "$SNUPKG" --api-key ${{ secrets.GITHUB_TOKEN }} --source "github"

@@ -5,7 +5,7 @@ using SoulsFormats;
 
 namespace UXM.Archive
 {
-    class ArchiveDictionary
+    public class ArchiveDictionary
     {
         private const uint PRIME = 37;
         private const ulong PRIME64 = 0x85ul;

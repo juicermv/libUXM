@@ -11,7 +11,7 @@ using UXM.Misc;
 namespace UXM.Data
 {
 
-    class GameInfo
+    public class GameInfo
     {
         public long RequiredGB;
         public BHD5.Game BHD5Game;

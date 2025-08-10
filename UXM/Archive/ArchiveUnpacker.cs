@@ -6,7 +6,6 @@ using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
-using System.Windows.Forms;
 using Yabber;
 
 using UXM.Data;
@@ -96,16 +95,7 @@ namespace UXM.Archive
 
             if (driveInfo.AvailableFreeSpace < gameInfo.RequiredGB * 1024 * 1024 * 1024)
             {
-                DialogResult choice = MessageBox.Show(
-                    $"{gameInfo.RequiredGB} GB of free space is required to fully unpack this game; " +
-                    $"only {driveInfo.AvailableFreeSpace / (1024f * 1024 * 1024):F1} GB available.\r\n" +
-                    "If you're only doing a partial unpack to restore some files you may ignore this warning, " +
-                    "otherwise it will most likely fail.\r\n\r\n" +
-                    "Do you want to continue?",
-                    "Space Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-
-                if (choice == DialogResult.No)
-                    return null;
+                throw new UnpackStorageException(gameInfo, driveInfo);
             }
 
             if (ct.IsCancellationRequested)

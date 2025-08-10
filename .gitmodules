@@ -1,6 +1,0 @@
-[submodule "Yabber-Class-Library"]
-	path = Yabber-Class-Library
-	url = https://github.com/Nordgaren/Yabber-Class-Library.git
-[submodule "SoulsFormats"]
-	path = SoulsFormats
-	url = https://github.com/JKAnderson/SoulsFormats
