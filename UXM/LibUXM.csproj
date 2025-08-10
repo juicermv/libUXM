@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <TargetFramework>net48</TargetFramework>
+    <TargetFrameworks>net48;net9.0</TargetFrameworks>
     <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
     <LangVersion>12.0</LangVersion>
     <AssemblyName>JuicerMV.LibUXM</AssemblyName>
@@ -25,7 +25,6 @@
       <PrivateAssets>All</PrivateAssets>
     </PackageReference>
     <PackageReference Include="Fody" Version="6.9.2" />
-    <PackageReference Include="Microsoft.WindowsAPICodePack-Shell" Version="1.1.0" />
     <PackageReference Include="NuGet.Build.Tasks.Pack" Version="6.14.0" />
     <PackageReference Include="Octokit" Version="14.0.0" />
     <PackageReference Include="Semver" Version="3.0.0" />
@@ -36,6 +35,8 @@
     <PackageReference Include="GitVersion.MsBuild" Version="6.4.0">
       <PrivateAssets>All</PrivateAssets>
     </PackageReference>
+
+    <PackageReference Include="System.Configuration.ConfigurationManager" Version="9.0.8" />
   </ItemGroup>
   <ItemGroup>
     <None Include="..\readme.md" Pack="true" PackagePath="\" />
