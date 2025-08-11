@@ -59,5 +59,328 @@ namespace UXM.Properties {
                 resourceCulture = value;
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to #data0
+        ////cutscene/s00_00_0000.cutscenebnd.dcx
+        ////cutscene/s00_00_0000_00.tpfbnd.dcx
+        ////cutscene/s00_00_0000_01.tpfbnd.dcx
+        ////cutscene/s00_00_0000_02.tpfbnd.dcx
+        ////cutscene/s00_00_0000_03.tpfbnd.dcx
+        ////cutscene/s00_00_0000_04.tpfbnd.dcx
+        ////cutscene/s00_00_0000_05.tpfbnd.dcx
+        ////cutscene/s00_00_0000_06.tpfbnd.dcx
+        ////cutscene/s00_00_0000_07.tpfbnd.dcx
+        ////cutscene/s00_00_0000_08.tpfbnd.dcx
+        ////cutscene/s00_00_0000_09.tpfbnd.dcx
+        ////cutscene/s00_10_0000.cutscenebnd.dcx
+        ////cutscene/s00_10_0000_00.tpfbnd.dcx
+        ////cutscene/s00_10_00 [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string ArmoredCore6Dictionary {
+            get {
+                return ResourceManager.GetString("ArmoredCore6Dictionary", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] ArmoredCore6GameInfo {
+            get {
+                object obj = ResourceManager.GetObject("ArmoredCore6GameInfo", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to /breakobj/m10_02_00_00.breakobj
+        ////breakobj/m10_04_00_00.breakobj
+        ////breakobj/m10_10_00_00.breakobj
+        ////breakobj/m10_14_00_00.breakobj
+        ////breakobj/m10_15_00_00.breakobj
+        ////breakobj/m10_16_00_00.breakobj
+        ////breakobj/m10_17_00_00.breakobj
+        ////breakobj/m10_18_00_00.breakobj
+        ////breakobj/m10_19_00_00.breakobj
+        ////breakobj/m10_23_00_00.breakobj
+        ////breakobj/m10_25_00_00.breakobj
+        ////breakobj/m10_27_00_00.breakobj
+        ////breakobj/m10_29_00_00.breakobj
+        ////breakobj/m10_30_00_00.breakobj
+        ////breakobj/m10_31_00_00.breakobj
+        ////breakobj/m10_32_ [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string DarkSouls2Dictionary {
+            get {
+                return ResourceManager.GetString("DarkSouls2Dictionary", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] DarkSouls2GameInfo {
+            get {
+                object obj = ResourceManager.GetObject("DarkSouls2GameInfo", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to /action/eventnameid.txt
+        ////action/script/c0000.hks
+        ////action/script/c0001.hks
+        ////action/script/c0002.hks
+        ////action/script/c0004.hks
+        ////action/script/c0006.hks
+        ////action/script/c0100.hks
+        ////action/script/c1030.hks
+        ////action/script/c1040.hks
+        ////action/script/c1041.hks
+        ////action/script/c1050.hks
+        ////action/script/c1060.hks
+        ////action/script/c1070.hks
+        ////action/script/c1090.hks
+        ////action/script/c1100.hks
+        ////action/script/c1105.hks
+        ////action/script/c1110.hks
+        ////action/script/c1120.hks
+        ////action/script/c1130.hks
+        ////action/script/c113 [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string DarkSouls3Dictionary {
+            get {
+                return ResourceManager.GetString("DarkSouls3Dictionary", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] DarkSouls3GameInfo {
+            get {
+                object obj = ResourceManager.GetObject("DarkSouls3GameInfo", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to /chr/c0000.anibnd.dcx
+        ////chr/c0000.chrbnd.dcx
+        ////chr/c0000.esd.dcx
+        ////chr/c0000_a00_hi.anibnd.dcx
+        ////chr/c0000_a00_lo.anibnd.dcx
+        ////chr/c0000_a00_md.anibnd.dcx
+        ////chr/c0000_a0x.anibnd.dcx
+        ////chr/c0000_a1x.anibnd.dcx
+        ////chr/c0000_a2x.anibnd.dcx
+        ////chr/c0000_a3x.anibnd.dcx
+        ////chr/c0000_a4x.anibnd.dcx
+        ////chr/c0000_a5x.anibnd.dcx
+        ////chr/c0000_a6x.anibnd.dcx
+        ////chr/c0000_a7x.anibnd.dcx
+        ////chr/c0000_a8x.anibnd.dcx
+        ////chr/c0000_a9x.anibnd.dcx
+        ////chr/c0000_c2060.anibnd.dcx
+        ////chr/c0000_c2290.anibnd.dcx
+        ////chr/c0000_c2300.anibnd.dcx        /// [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string DarkSoulsDictionary {
+            get {
+                return ResourceManager.GetString("DarkSoulsDictionary", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] DarkSoulsGameInfo {
+            get {
+                object obj = ResourceManager.GetObject("DarkSoulsGameInfo", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to #data0
+        ////action/eventnameid.txt
+        ////action/script/c0000.hks
+        ////action/script/c0000_talk.hks
+        ////action/script/c0100.hks
+        ////action/script/c0110.hks
+        ////action/script/c0120.hks
+        ////action/script/c0130.hks
+        ////action/script/c1000.hks
+        ////action/script/c2010.hks
+        ////action/script/c2030.hks
+        ////action/script/c2031.hks
+        ////action/script/c2040.hks
+        ////action/script/c2041.hks
+        ////action/script/c2050.hks
+        ////action/script/c2060.hks
+        ////action/script/c2100.hks
+        ////action/script/c2110.hks
+        ////action/script/c2120.hks
+        ////action/script/c2130.hks
+        ////actio [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string EldenRingDictionary {
+            get {
+                return ResourceManager.GetString("EldenRingDictionary", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] EldenRingGameInfo {
+            get {
+                object obj = ResourceManager.GetObject("EldenRingGameInfo", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to #data0
+        ////action/eventnameid.txt
+        ////action/script/c0000.hks
+        ////action/script/c0000_talk.hks
+        ////action/script/c0010.hks
+        ////action/script/c0100.hks
+        ////action/script/c0120.hks
+        ////action/script/c1000.hks
+        ////action/script/c2040.hks
+        ////action/script/c2041.hks
+        ////action/script/c2100.hks
+        ////action/script/c2130.hks
+        ////action/script/c2140.hks
+        ////action/script/c2150.hks
+        ////action/script/c2270.hks
+        ////action/script/c2271.hks
+        ////action/script/c2276.hks
+        ////action/script/c2500.hks
+        ////action/script/c3000.hks
+        ////action/script/c3010.hks
+        ////actio [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string EldenRingNightreignDictionary {
+            get {
+                return ResourceManager.GetString("EldenRingNightreignDictionary", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] EldenRingNightreignGameInfo {
+            get {
+                object obj = ResourceManager.GetObject("EldenRingNightreignGameInfo", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to /breakobj/m10_02_00_00.breakobj
+        ////breakobj/m10_04_00_00.breakobj
+        ////breakobj/m10_10_00_00.breakobj
+        ////breakobj/m10_14_00_00.breakobj
+        ////breakobj/m10_15_00_00.breakobj
+        ////breakobj/m10_16_00_00.breakobj
+        ////breakobj/m10_17_00_00.breakobj
+        ////breakobj/m10_18_00_00.breakobj
+        ////breakobj/m10_19_00_00.breakobj
+        ////breakobj/m10_23_00_00.breakobj
+        ////breakobj/m10_25_00_00.breakobj
+        ////breakobj/m10_27_00_00.breakobj
+        ////breakobj/m10_29_00_00.breakobj
+        ////breakobj/m10_30_00_00.breakobj
+        ////breakobj/m10_31_00_00.breakobj
+        ////breakobj/m10_32_ [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string ScholarDictionary {
+            get {
+                return ResourceManager.GetString("ScholarDictionary", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] ScholarGameInfo {
+            get {
+                object obj = ResourceManager.GetObject("ScholarGameInfo", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to /asset/menu/artwork/layout_p00.dds
+        ////asset/menu/artwork/layout_p01.dds
+        ////asset/menu/artwork/layout_p02_en.dds
+        ////asset/menu/artwork/layout_p02_jp.dds
+        ////asset/menu/artwork/layout_p03_en.dds
+        ////asset/menu/artwork/layout_p03_jp.dds
+        ////asset/menu/artwork/layout_p04_en.dds
+        ////asset/menu/artwork/layout_p04_jp.dds
+        ////asset/menu/artwork/layout_p05_en.dds
+        ////asset/menu/artwork/layout_p05_jp.dds
+        ////asset/menu/artwork/layout_p06_en.dds
+        ////asset/menu/artwork/layout_p06_jp.dds
+        ////asset/menu/artwork/layout_p07_en.dds
+        ////asset/menu [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string SekiroBonusDictionary {
+            get {
+                return ResourceManager.GetString("SekiroBonusDictionary", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] SekiroBonusGameInfo {
+            get {
+                object obj = ResourceManager.GetObject("SekiroBonusGameInfo", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to /action/eventnameid.txt
+        ////action/script/c0000.hks
+        ////action/script/c0000_cmsg.hks
+        ////action/script/c0000_define.hks
+        ////action/script/c0000_transition.hks
+        ////action/script/c1000.hks
+        ////action/script/c1001.hks
+        ////action/script/c1010.hks
+        ////action/script/c1013.hks
+        ////action/script/c1020.hks
+        ////action/script/c1030.hks
+        ////action/script/c1040.hks
+        ////action/script/c1050.hks
+        ////action/script/c1060.hks
+        ////action/script/c1070.hks
+        ////action/script/c1080.hks
+        ////action/script/c1100.hks
+        ////action/script/c1110.hks
+        ////action/script/c1120.h [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string SekiroDictionary {
+            get {
+                return ResourceManager.GetString("SekiroDictionary", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] SekiroGameInfo {
+            get {
+                object obj = ResourceManager.GetObject("SekiroGameInfo", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
     }
 }

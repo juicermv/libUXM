@@ -43,9 +43,17 @@ namespace UXM.Data
         {
 
             string prefix = GetPrefix(game);
+            string gameInfo = "";
+            string dictionary = "";
+            using (StreamReader sr = new StreamReader(Properties.Resources.ResourceManager.GetStream($"{prefix}GameInfo.xml")))
+            {
+                gameInfo = sr.ReadToEnd();
+            };
 
-            string gameInfo = File.ReadAllText($@"{ExeDir}\res\{prefix}GameInfo.xml");
-            string dictionary = File.ReadAllText($@"{ExeDir}\res\{prefix}Dictionary.txt");
+            using (StreamReader sr = new StreamReader(Properties.Resources.ResourceManager.GetStream($"{prefix}Dictionary.txt")))
+            {
+                dictionary = sr.ReadToEnd();
+            };
 
             return new GameInfo(gameInfo, dictionary, game);
         }
