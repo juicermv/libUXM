@@ -34,3 +34,39 @@ jobs:
               with:
                   name: build-artifacts
                   path: 'UXM/bin/Debug'
+    publish-debug:
+        permissions:
+            packages: write
+
+        needs: build
+
+        runs-on: ubuntu-latest
+        steps:
+            - name: Setup .NET
+              uses: actions/setup-dotnet@v4
+              with:
+                  dotnet-version: '8.0.x'
+
+            # Download artifacts
+            - name: Download Artifacts
+              uses: actions/download-artifact@v4
+              with:
+                  name: build-artifacts
+                  path: './artifacts'
+
+            - name: NuGet Login
+              run: dotnet nuget add source --username ${{github.actor}} --password ${{ secrets.GITHUB_TOKEN }}  --store-password-in-clear-text --name github "https://nuget.pkg.github.com/${{ github.repository_owner }}/index.json"
+
+            - name: Publish to NuGet
+              shell: bash
+              run: |
+                  NUPKG=$(ls ./artifacts/*.nupkg)
+                  SNUPKG=$(ls ./artifacts/*.snupkg)
+                  echo "Found NuGet package: $NUPKG"
+                  echo "Found Symbol package: $SNUPKG"
+
+                  echo "Pushing to GitHub..."
+                  dotnet nuget push "$NUPKG" --api-key ${{ secrets.GITHUB_TOKEN }} --source "github" --skip-duplicate
+                  dotnet nuget push "$SNUPKG" --api-key ${{ secrets.GITHUB_TOKEN }} --source "github" --skip-duplicate
+
+                  echo "Done"
