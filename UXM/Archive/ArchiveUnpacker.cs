@@ -14,7 +14,7 @@ using UXM.Misc;
 
 namespace UXM.Archive
 {
-    static class ArchiveUnpacker
+    public static class ArchiveUnpacker
     {
         private const int WRITE_LIMIT = 1024 * 1024 * 100;
 
