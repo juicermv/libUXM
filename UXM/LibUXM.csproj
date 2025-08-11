@@ -60,88 +60,16 @@
     <None Include="FodyWeavers.xml" />
     <None Include="Properties\Settings.settings" />
     <None Include="icon.ico" Pack="true" PackagePath="\" />
-    <Content Include="Resources\**\*.*">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+  </ItemGroup>
+
+
+  <ItemGroup>
+    <Content Include="Resources\**\*.txt">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\**\*.xml">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
-  
-  
-  <ItemGroup>
-    <Content Remove="Resources\ArmoredCore6Dictionary.txt" />
-    <Content Remove="Resources\ArmoredCore6GameInfo.xml" />
-    <Content Remove="Resources\DarkSouls2Dictionary.txt" />
-    <Content Remove="Resources\DarkSouls2GameInfo.xml" />
-    <Content Remove="Resources\DarkSouls3Dictionary.txt" />
-    <Content Remove="Resources\DarkSouls3GameInfo.xml" />
-    <Content Remove="Resources\DarkSoulsDictionary.txt" />
-    <Content Remove="Resources\DarkSoulsGameInfo.xml" />
-    <Content Remove="Resources\EldenRingDictionary.txt" />
-    <Content Remove="Resources\EldenRingGameInfo.xml" />
-    <Content Remove="Resources\EldenRingNightreignDictionary.txt" />
-    <Content Remove="Resources\EldenRingNightreignGameInfo.xml" />
-    <Content Remove="Resources\ScholarDictionary.txt" />
-    <Content Remove="Resources\ScholarGameInfo.xml" />
-    <Content Remove="Resources\SekiroBonusDictionary.txt" />
-    <Content Remove="Resources\SekiroBonusGameInfo.xml" />
-    <Content Remove="Resources\SekiroDictionary.txt" />
-    <Content Remove="Resources\SekiroGameInfo.xml" />
-  </ItemGroup>
-  
-  
-  <ItemGroup>
-    <Resource Include="Resources\ArmoredCore6Dictionary.txt">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Resources\ArmoredCore6GameInfo.xml">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Resources\DarkSouls2Dictionary.txt">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Resources\DarkSouls2GameInfo.xml">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Resources\DarkSouls3Dictionary.txt">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Resources\DarkSouls3GameInfo.xml">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Resources\DarkSoulsDictionary.txt">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Resources\DarkSoulsGameInfo.xml">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Resources\EldenRingDictionary.txt">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Resources\EldenRingGameInfo.xml">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Resources\EldenRingNightreignDictionary.txt">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Resources\EldenRingNightreignGameInfo.xml">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Resources\ScholarDictionary.txt">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Resources\ScholarGameInfo.xml">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Resources\SekiroBonusDictionary.txt">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Resources\SekiroBonusGameInfo.xml">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Resources\SekiroDictionary.txt">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Resources\SekiroGameInfo.xml">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Resource>
-  </ItemGroup>
+
 </Project>
