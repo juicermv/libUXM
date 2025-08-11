@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Text;
 using System.Windows;
 using System.Xml.Linq;
 using UXM.Archive;
@@ -43,17 +44,8 @@ namespace UXM.Data
         {
 
             string prefix = GetPrefix(game);
-            string gameInfo = "";
-            string dictionary = "";
-            using (StreamReader sr = new StreamReader(Properties.Resources.ResourceManager.GetStream($"{prefix}GameInfo.xml")))
-            {
-                gameInfo = sr.ReadToEnd();
-            };
-
-            using (StreamReader sr = new StreamReader(Properties.Resources.ResourceManager.GetStream($"{prefix}Dictionary.txt")))
-            {
-                dictionary = sr.ReadToEnd();
-            };
+            string gameInfo = UTF8Encoding.UTF8.GetString((byte[])Properties.Resources.ResourceManager.GetObject($"{prefix}GameInfo"));
+            string dictionary = (string)Properties.Resources.ResourceManager.GetObject($"{prefix}Dictionary.txt");
 
             return new GameInfo(gameInfo, dictionary, game);
         }
