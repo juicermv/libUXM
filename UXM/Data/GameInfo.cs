@@ -45,7 +45,7 @@ namespace UXM.Data
 
             string prefix = GetPrefix(game);
             string gameInfo = UTF8Encoding.UTF8.GetString((byte[])Properties.Resources.ResourceManager.GetObject($"{prefix}GameInfo"));
-            string dictionary = (string)Properties.Resources.ResourceManager.GetObject($"{prefix}Dictionary.txt");
+            string dictionary = (string)Properties.Resources.ResourceManager.GetObject($"{prefix}Dictionary");
 
             return new GameInfo(gameInfo, dictionary, game);
         }
