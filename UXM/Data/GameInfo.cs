@@ -22,7 +22,6 @@ namespace UXM.Data
         public List<string> DeleteDirs;
         public List<string> Replacements;
         public List<string> Replace;
-        public static readonly string ExeDir = Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location);
 
         public GameInfo(string xmlStr, string dictionaryStr, Util.Game game)
         {
